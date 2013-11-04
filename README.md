@@ -1,6 +1,6 @@
 funnyText.js
 ============
-![preview](https://raw.github.com/alvarotrigo/funnyText.js/master/imgs/intro.png)
+![preview](https://raw.github.com/alvarotrigo/funnyText.js/master/imgs/intro.jpg)
 Create funny and crazy moving texts in a simple way.
 
 - [Living Demo](http://alvarotrigo.com/funnyText/)
