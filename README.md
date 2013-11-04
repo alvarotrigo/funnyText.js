@@ -4,6 +4,7 @@ funnyText.js
 Create funny and crazy moving texts in a simple way.
 
 - [Living Demo](http://alvarotrigo.com/funnyText/)
+- [Temporal website](http://alvarotrigo.com/blog/creating-funnytext-js-plugin-for-jquery/)
 
 ## Usage
 As you can see in the `example.html` file, you will need to include the JavaScript file `jquery.funnyText.js` and the css file `jquery.funnyText.css` of the plugin, as well as [jQuery](http://jquery.com/).
