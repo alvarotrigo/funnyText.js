@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<title>funnyText.js</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="funnyText.js plugin by Alvaro Trigo. Create a funny text effect with jQuery." />
+	<meta name="keywords"  content="funnyText.js,funnyText,madText,jquery,alvaro,trigo,plugin,effect,text,texts,moving,hover" />
+	<meta name="Resource-type" content="Document" />
+
+	
+	<link rel="stylesheet" type="text/css" href="./jquery.funnyText.css" />
+	<style>
+		.text1, .text2{
+			display:block;
+			text-align:center;
+		}
+		.text1 span {
+			color: #000;
+			font-size:8em;
+			font-family:arial;
+
+		}
+		.text1 span.active{
+			color: #fff
+		}
+		
+		
+		.text2 span {
+			color: #000;
+			font-size:7em;
+			font-family:arial;
+			background-color: #ffdd00;
+		}
+		.text2 span.active {
+			color: #fff;
+			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+			background-color: #ff00dd;
+		}
+		
+		
+		
+		/* Web design
+		* --------------------------------------- */
+		.table{
+			display:table;
+			width:100%;
+			height: 100%;
+		}
+		.tableCell{
+			display:table-cell;
+			vertical-align: middle;
+			width:100%;
+			height: 100%;
+		}
+		body, html{
+			margin:0;
+			padding:0;
+			height:100%;
+			background-color: #00AEEF;
+			background-color: #00AEEF;
+			background-image: url(imgs/grain.png);
+		}
+		
+	</style>
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+		
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
+	
+	<script type="text/javascript" src="./jquery.funnyText.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.text1').funnyText({
+				'speed': 700
+			});
+			
+			$('.text2').funnyText({
+				'speed': 700
+			});
+		});
+	</script>
+	
+	
+
+</head>
+<body>
+
+<div class="table">
+	<div class="tableCell">
+		<div class="text1"> funnyText.js</div>
+		<div class="text2"> This is an example </div>
+	</div>
+</div>
+
+</body>
+</html>
