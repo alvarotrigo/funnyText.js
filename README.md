@@ -29,7 +29,7 @@ in which the text is contained.
 
 ```javascript
 $(document).ready(function() {
-	$('.mySelector')funnyText();
+	$('.mySelector').funnyText();
 });
 ```
 
