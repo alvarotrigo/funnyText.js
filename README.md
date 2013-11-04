@@ -18,7 +18,7 @@ As you can see in the `example.html` file, you will need to include the JavaScri
 ```
 
 ###Required HTML structure
-The funny text effect will be applied to the text under your custom selector which you will be used as well in the initialization.
+The funny text effect will be applied to the text under your custom selector which will be used as well in the initialization.
 ```html
 <div class="mySelector">funnText is applied here</div>
 ```
