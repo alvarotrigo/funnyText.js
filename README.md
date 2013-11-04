@@ -34,4 +34,4 @@ $(document).ready(function() {
 ```
 
 ## Options
-- `speed`: (default `700`) defines the speed in which the letters change.
+- `speed`: (default `700`) defines the speed in which the letters change in miliseconds.
