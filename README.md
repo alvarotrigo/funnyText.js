@@ -50,7 +50,7 @@ $(document).ready(function() {
 ## Options
 - `speed`: (default `700`) Defines the speed in which the letters change in miliseconds.
 
-- `borderColor`: (default `black`) Defines the color of the border when the text is active.
+- `borderColor`: (default `black`) Defines the color of the border when the text is active. This option won't take effec when if the browser doesn't support CSS3. 
 
 - `activeColor`: (default `white`) Defines the color of the text when it is active.
 
