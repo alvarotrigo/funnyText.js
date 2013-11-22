@@ -16,29 +16,17 @@
 			display:block;
 			text-align:center;
 		}
-		.text1 span {
-			color: #000;
-			font-size:8em;
+		body{
 			font-family:arial;
+		}
+		
 
-		}
-		.text1 span.active{
-			color: #fff
-		}
-		
-		
 		.text2 span {
-			color: #000;
-			font-size:7em;
-			font-family:arial;
-			background-color: #ffdd00;
+			background-color: #DFE2DB;
 		}
 		.text2 span.active {
-			color: #fff;
-			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-			background-color: #ff00dd;
+			background-color: #3B3738;
 		}
-		
 		
 		
 		/* Web design
@@ -75,14 +63,21 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
 	
 	<script type="text/javascript" src="./jquery.funnyText.js"></script>
-	<script type="text/javascript">
+<script type="text/javascript">
 		$(document).ready(function() {
 			$('.text1').funnyText({
-				'speed': 700
+				speed: 700,
+				activeColor: '#fff',
+				color: 'black',
+				fontSize: '8em'
 			});
 			
 			$('.text2').funnyText({
-				'speed': 700
+				speed: 700,
+				fontSize: '7em',
+				color: '#191919',
+				activeColor: '#fff',
+				borderColor: 'black'
 			});
 		});
 	</script>
