@@ -1,5 +1,5 @@
 /**
- * funnyText.js 0.1 Beta
+ * funnyText.js 0.2 Beta
  * https://github.com/alvarotrigo/funnyText.js
  * MIT licensed
  *
@@ -15,7 +15,7 @@
 			'borderColor': 'black',
 			'activeColor': 'white',
 			'color': 'black',
-			'textSize': '2em'
+			'fontSize': '7em'
 		}, options);
 
 		var that = $(this);
@@ -32,7 +32,13 @@
 		var activePositionX, activePositionY, normalPositionX, normalPositionY;
 		var previousPosition;
 
+		//removing the original text
 		original.html('');
+
+		//append the CSS styles
+		var style = $('<style>'+that.selector +'.funnyText span.active { color: ' + options.activeColor + '; text-shadow: -1px 0 '+options.borderColor+', 0 1px '+options.borderColor+', 1px 0 '+options.borderColor+', 0 -1px '+options.borderColor+';} '+that.selector +'.funnyText span{color: ' + options.color +'; font-size:' + options.fontSize + ';}</style>')
+		$('html > head').append(style);
+
 
 		//for each character
 		for (var i = 0; i < characters.length; i++){
@@ -175,33 +181,113 @@
 			var sizeX = characterWrap.width() / 2;
 			var character = characterWrap.find('.active');
 
-			if(character.hasClass('moveRight')){
-				if(!characterWrap.hasClass('moved')){
-					characterWrap.css('left', '-' + sizeX + 'px');
-				}else{
-					characterWrap.css('left', '0px');
+			if(supportTransitions()){
+				if(character.hasClass('moveRight')){
+					if(!characterWrap.hasClass('moved')){
+						characterWrap.css('left', '-' + sizeX + 'px');
+					}else{
+						characterWrap.css('left', '0px');
+					}
+				} else if(character.hasClass('moveLeft')){
+					if(!characterWrap.hasClass('moved')){
+						characterWrap.css('left', '0px');
+					}else{
+						characterWrap.css('left', '-' + sizeX + 'px');
+					}
+				} else if(character.hasClass('moveUp')){
+					if(!characterWrap.hasClass('moved')){
+						characterWrap.css('top', '0px');
+					}else{
+						characterWrap.css('top', '-' + sizeY + 'px');
+					}
+				} else if(character.hasClass('moveDown')){
+					if(!characterWrap.hasClass('moved')){
+						characterWrap.css('bottom', sizeY + 'px');
+					}else{
+						characterWrap.css('bottom', '0px');
+					}
 				}
-			} else if(character.hasClass('moveLeft')){
-				if(!characterWrap.hasClass('moved')){
-					characterWrap.css('left', '0px');
-				}else{
-					characterWrap.css('left', '-' + sizeX + 'px');
-				}
-			} else if(character.hasClass('moveUp')){
-				if(!characterWrap.hasClass('moved')){
-					characterWrap.css('top', '0px');
-				}else{
-					characterWrap.css('top', '-' + sizeY + 'px');
-				}
-			} else if(character.hasClass('moveDown')){
-				if(!characterWrap.hasClass('moved')){
-					characterWrap.css('bottom', sizeY + 'px');
-				}else{
-					characterWrap.css('bottom', '0px');
+			}
+			
+			//jquery fallback 
+			else{
+				if(character.hasClass('moveRight')){
+					if(!characterWrap.hasClass('moved')){
+						characterWrap.animate({
+							'left': '-' + sizeX + 'px'
+						}, 400);
+					}else{
+						characterWrap.animate({
+							'left': '0px'
+						},400);
+					}
+				} else if(character.hasClass('moveLeft')){
+					if(!characterWrap.hasClass('moved')){
+						characterWrap.animate({
+							'left': '0px'
+						},400);
+					}else{
+						characterWrap.animate({
+							'left' :  '-' + sizeX + 'px'
+						},400);
+					}
+				} else if(character.hasClass('moveUp')){
+					if(!characterWrap.hasClass('moved')){
+						characterWrap.animate({
+							'top': '0px'
+						}, 400);
+					}else{
+						characterWrap.animate({
+							'top': '-' + sizeY + 'px'
+						}, 400);
+					}
+				} else if(character.hasClass('moveDown')){
+					if(!characterWrap.hasClass('moved')){
+						characterWrap.animate({
+							'bottom' : sizeY + 'px'
+						}, 400);
+					}else{
+						characterWrap.animate({
+							'bottom':'0px'
+						},400);
+					}
 				}
 			}
 
 			characterWrap.toggleClass('moved');
 		}
 	};
+	
+	
+		
+	/**
+	 * jQuery.support.cssProperty
+	 * To verify that a CSS property is supported (or any of its browser-specific implementations)
+	 *
+	 *
+	 * @Author: Axel Jack Fuchs (Cologne, Germany)
+	 * @Date: 08-29-2010 18:43
+	 *
+	 * Example: $.support.cssProperty('boxShadow');
+	 * Returns: true
+	 *
+	 * Example: $.support.cssProperty('boxShadow', true);
+	 * Returns: 'MozBoxShadow' (On Firefox4 beta4)
+	 * Returns: 'WebkitBoxShadow' (On Safari 5)
+	 */
+	function supportTransitions() {
+		var b = document.body || document.documentElement;
+		var s = b.style;
+		var p = 'transition';
+		if(typeof s[p] == 'string') {return true; }
+
+		// Tests for vendor specific prop
+		v = ['Moz', 'Webkit', 'Khtml', 'O', 'ms', 'Icab'],
+		p = p.charAt(0).toUpperCase() + p.substr(1);
+		for(var i=0; i<v.length; i++) {
+		  if(typeof s[v[i] + p] == 'string') { return true; }
+		}
+		return false;
+	}
+
 })(jQuery);

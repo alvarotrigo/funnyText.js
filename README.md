@@ -34,5 +34,26 @@ $(document).ready(function() {
 });
 ```
 
+A more complex initialization with all the options set could look like this:
+```javascript
+$(document).ready(function() {
+	$('.mySelector').funnyText({
+		speed: 700,
+		borderColor: 'black',
+		activeColor: 'white',
+		color: 'black',
+		fontSize: '7em'
+	});
+});
+```
+
 ## Options
-- `speed`: (default `700`) defines the speed in which the letters change in miliseconds.
+- `speed`: (default `700`) Defines the speed in which the letters change in miliseconds.
+
+- `borderColor`: (default `black`) Defines the color of the border when the text is active.
+
+- `activeColor`: (default `white`) Defines the color of the text when it is active.
+
+- `color`: (default `black`) Defines the color of the text on start.
+
+- `fontSize`: (default `7em`) Defines the size of the font.
