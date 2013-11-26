@@ -1,5 +1,5 @@
 /**
- * funnyText.js 0.2 Beta
+ * funnyText.js 0.3 Beta
  * https://github.com/alvarotrigo/funnyText.js
  * MIT licensed
  *
@@ -15,7 +15,8 @@
 			'borderColor': 'black',
 			'activeColor': 'white',
 			'color': 'black',
-			'fontSize': '7em'
+			'fontSize': '7em',
+			'direction': 'both'
 		}, options);
 
 		var that = $(this);
@@ -54,7 +55,7 @@
 			//avoid repeating the same values two consecutive letters 
 			do{
 				activePositionXY = getNewPosition(normalPositionX, normalPositionY);
-			}while(activePositionXY == previousPosition);
+			}while(activePositionXY == previousPosition && options.direction == 'both');
 
 			previousPosition = activePositionXY;
 
@@ -64,7 +65,7 @@
 			original.append(newChar);
 		};
 
-
+		
 		//setting the width and height of each character to its wrapper
 		that.find('.charWrap').each(function (){
 			var sizeX = $(this).find('span').width();
@@ -99,7 +100,7 @@
 		function getNewPosition(x, y){
 			var result;
 			
-			if(getRandom(0, 100) % 2){
+			if((getRandom(0, 100) % 2 && options.direction == 'both') || options.direction == 'horizontal') {
 				if(x == "right" && y == "top"){
 					result = "left top moveLeft";
 				} else if(x == "right" && y == "bottom"){
@@ -109,7 +110,6 @@
 				} else if(x == "left" && y == "bottom"){
 					result = "right bottom moveRight";
 				}
-
 			}else{
 				if(x == "right" && y == "top"){
 					result = "right bottom moveDown";

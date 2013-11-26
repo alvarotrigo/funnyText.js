@@ -42,7 +42,8 @@ $(document).ready(function() {
 		borderColor: 'black',
 		activeColor: 'white',
 		color: 'black',
-		fontSize: '7em'
+		fontSize: '7em',
+		direction: 'both'
 	});
 });
 ```
@@ -57,3 +58,5 @@ $(document).ready(function() {
 - `color`: (default `black`) Defines the color of the text on start.
 
 - `fontSize`: (default `7em`) Defines the size of the font.
+
+- `direction` : (default `both`) Defines the direction of the letters movement. It can be `both`, `horizontal` or `vertical`.
