@@ -19,7 +19,7 @@ As you can see in the `example.html` file, you will need to include the JavaScri
 ```
 
 ###Required HTML structure
-The funny text effect will be applied to the text under your custom selector which will be used as well in the initialization.
+The funny text effectt will be applied to the text under your custom selector which will be used as well in the initialization.
 ```html
 <div class="mySelector">funnText is applied here</div>
 ```
@@ -49,9 +49,9 @@ $(document).ready(function() {
 ```
 
 ## Options
-- `speed`: (default `700`) Defines the speed in which the letters change in miliseconds.
+- `speed`: (default `700`) Defines the speed in which the letters change in milliseconds.
 
-- `borderColor`: (default `black`) Defines the color of the border when the text is active. This option won't take effec when if the browser doesn't support CSS3. 
+- `borderColor`: (default `black`) Defines the color of the border when the text is active. This option won't take effect when if the browser doesn't support CSS3. 
 
 - `activeColor`: (default `white`) Defines the color of the text when it is active.
 
