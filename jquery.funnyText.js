@@ -1,5 +1,5 @@
 /**
- * funnyText.js 0.3 Beta
+ * funnyText.js 0.4 Beta
  * https://github.com/alvarotrigo/funnyText.js
  * MIT licensed
  *
@@ -164,9 +164,9 @@
 		* Sets a timer for a given character for a given time.
 		*/
 		function setTimer(character, time){
-			// setTimeout(function (){
-			// 	moveCharacter(character);
-			// }, time * options.speed);
+			setTimeout(function (){
+				moveCharacter(character);
+			}, time * options.speed);
 		}
 
 		$('.charWrap').hover(function (){
