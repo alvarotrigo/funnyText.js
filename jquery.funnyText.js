@@ -68,8 +68,8 @@
 		
 		//setting the width and height of each character to its wrapper
 		that.find('.charWrap').each(function (){
-			var sizeX = $(this).find('span').width();
-			var sizeY = $(this).find('span').height();
+			var sizeX = $(this).find('span').outerWidth();
+			var sizeY = $(this).find('span').outerHeight();
 		
 			$(this).css({
 				'width': sizeX * 2 + 'px',
@@ -132,11 +132,15 @@
 		*/
 		function setMargin(obj){
 			if(obj.find('.normal').hasClass('bottom')){
-				obj.css('top', '-' + obj.find('.normal').height() + 'px');
+				obj.css('top', '-' + obj.find('.normal').outerHeight() + 'px');
+			}else{
+				obj.css('top', '0px');
 			}
 
 			if(obj.find('.normal').hasClass('right')){
-				obj.css('left', '-' + obj.find('.normal').width() + 'px');
+				obj.css('left', '-' + obj.find('.normal').outerWidth() + 'px');
+			}else{
+				obj.css('left', '0px');
 			}
 		}
 
@@ -160,9 +164,9 @@
 		* Sets a timer for a given character for a given time.
 		*/
 		function setTimer(character, time){
-			setTimeout(function (){
-				moveCharacter(character);
-			}, time * options.speed);
+			// setTimeout(function (){
+			// 	moveCharacter(character);
+			// }, time * options.speed);
 		}
 
 		$('.charWrap').hover(function (){
@@ -177,8 +181,8 @@
 		* Once reached, it will add a class "moved" as an  status indicator.
 		*/
 		function moveCharacter(characterWrap){
-			var sizeY = characterWrap.height() / 2;
-			var sizeX = characterWrap.width() / 2;
+			var sizeY = characterWrap.outerHeight() / 2;
+			var sizeX = characterWrap.outerWidth() / 2;
 			var character = characterWrap.find('.active');
 
 			if(supportTransitions()){
@@ -202,9 +206,9 @@
 					}
 				} else if(character.hasClass('moveDown')){
 					if(!characterWrap.hasClass('moved')){
-						characterWrap.css('bottom', sizeY + 'px');
+						characterWrap.css('top', '-' + sizeY + 'px');
 					}else{
-						characterWrap.css('bottom', '0px');
+						characterWrap.css('top', '0px');
 					}
 				}
 			}
