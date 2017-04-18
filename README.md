@@ -9,7 +9,7 @@ Create funny and crazy moving texts in a simple way.
 ## Usage
 As you can see in the `example.html` file, you will need to include the JavaScript file `jquery.funnyText.js` and the css file `jquery.funnyText.css` of the plugin, as well as [jQuery](http://jquery.com/).
 
-###Including files:
+### Including files:
 ```html
 <link rel="stylesheet" type="text/css" href="jquery.funnyText.css" />
 
@@ -18,13 +18,13 @@ As you can see in the `example.html` file, you will need to include the JavaScri
 <script type="text/javascript" src="jquery.funnyText.js"></script>
 ```
 
-###Required HTML structure
+### Required HTML structure
 The funny text effect will be applied to the text under your custom selector which will be used as well in the initialization.
 ```html
 <div class="mySelector">funnText is applied here</div>
 ```
 
-###Initialization 
+### Initialization 
 All you need to do is call the plugin inside a `$(document).ready` function using the selector 
 in which the text is contained.
 
